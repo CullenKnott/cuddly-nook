@@ -26,4 +26,4 @@ Once saved, the tasks will still be applied to the page after each refresh. The 
 
 # Application URL
 
-- 
+- https://cullenknott.github.io/cuddly-nook/
