@@ -1,8 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
-
 $(function () {
 
   function currentTime() {
@@ -11,10 +6,10 @@ $(function () {
     console.log(time)
 
     timeBlock.each(function () { // compares time to the id of the HTML and applies appropriate class
-      var idSelector = $(this).attr('id')
-      if (idSelector === time) {
+      var idSelector = parseInt($(this).attr('id'))
+      if (idSelector == time) {
         $(this).attr('class', 'row time-block present')
-      } else if (idSelector > time) {
+      } else if (time > idSelector) {
         $(this).attr('class', 'row time-block past')
       } else {
         $(this).attr('class', 'row time-block future')
@@ -23,6 +18,8 @@ $(function () {
   
   }
   currentTime() // calls function
+
+  var interval = setInterval(currentTime, 300000) // updates the page every 5mins without user input
 
   // displays current day
   var today = dayjs();
